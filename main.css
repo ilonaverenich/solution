@@ -6,6 +6,7 @@
    font-family: 'Roboto', sans-serif;
    background: black;
    color: orange;
+   max-width: 100%;
 }
 
 .container {
@@ -15,7 +16,6 @@
 .title {
    text-align: center;
    margin-top: 30px;
-
 }
 
 .condition {
@@ -33,4 +33,5 @@
 .copyright {
    margin: 10px 0px;
    text-align: center;
+
 }

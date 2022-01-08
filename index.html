@@ -7,11 +7,9 @@
    <meta name='viewport' content='width=device-width, initial-scale=1'>
    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
   
-   
-
 </head>
 <body>
-   <h1 class="title">Решение 10 задач</h1>
+   <h1 class="title">Решение 10 задач </h1>
    <div class="container">
     <hr>
     <div class="task task1">
@@ -30,8 +28,50 @@
             //digital_root(493193)  =>   2</p></code></pre>
       </div>
    </div>
+   <div class="task task2">
+      <div class="condition">Task 2. Реализуйте функцию unique_in_order, которая принимает в качестве аргумента последовательность и возвращает список элементов без каких-либо элементов с одинаковым значением рядом друг с другом и с сохранением исходного порядка элементов.</div>
+      <div class="solution">
+         <pre><code>
+            let uniqueInOrder = str => (typeof str == 'number')?(str.toString().replace(/(.)\1*/g, '$1').split('')).map(el=>+el):str.replace(/(.)\1*/g, '$1').split('')
+          <p class="comment">  
+           // uniqueInOrder('AAAABBBCCDAABBB') => ['A', 'B', 'C', 'D', 'A', 'B']
+           // uniqueInOrder('ABBCcAD')         => ['A', 'B', 'C', 'c', 'A', 'D']
+           // uniqueInOrder([1,2,2,3,3])       => [1,2,3]</p></code></pre></div>
+   </div>
+   <div class="task task2">
+      <div class="condition">Task 3. Дан массив целых чисел, найдите тот, который встречается нечетное количество раз.
+         Всегда будет только одно целое число, которое встречается нечетное количество раз.</div>
+      <div class="solution">
+         <pre><code>
+            let  func = arr => arr.find(item => arr.filter(el => el == item).length % 2)
+          <p class="comment">  
+            //func([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]) => 5
+            //func([1,1,2,-2,5,2,4,4,-1,-2,5]) => -1
+            //func([20,1,1,2,2,3,3,5,5,4,20,4,5]) => 5</p></code></pre></div>
+   </div>
+   <div class="task task4">
+      <div class="condition">Task 4. Напишите функцию, которая принимает строку круглых скобок и определяет, допустим ли порядок скобок. Функция должна возвращать истину, если строка действительна, и ложь, если она недействительна</div>
+      <div class="solution">
+         <pre><code>
+            let hashtags = str =>
+            (str == '')?false:
+            (str.trim()
+            .split(' ')
+            .filter((item)=>item!=='')
+            .join('')).length+1>140?false:'#'+str
+            .trim().
+            split(' ')
+            .filter(item=>item!=='')
+            .map(el=>el[0].toUpperCase()+ el.slice(1))
+            .join('')
+          <p class="comment">  
+             //hashtags(" Hello there thanks for trying my Kata")  =>  "#HelloThereThanksForTryingMyKata"
+             //hashtags("    Hello     World   "   =>  "#HelloWorld")
+             //hashtags("")  =>  false)</p></code></pre>
+      </div>
+   </div>
    <div class="task task5">
-      <div class="condition">Task 5. Переместите первую букву каждого слова в его конец, затем добавьте «ау» в конец слова. Не трогайте знаки препинания.</div>
+      <div class="condition">Task 5. Напишите функцию, которая принимает строку круглых скобок и определяет, допустим ли порядок скобок. Функция должна возвращать истину, если строка действительна, и ложь, если она недействительна</div>
       <div class="solution">
          <pre><code>
             let  validParentheses = str =>{
@@ -61,6 +101,32 @@
            // pigIt('This is my string') =>'hisTay siay ymay tringsay'</p></code></pre>
       </div>
    </div>
+   <div class="task task7">
+      <div class="condition">Task 7.Вам предоставляется массив (который будет иметь длину не менее 3, но может быть очень большим),
+         содержащий целые числа. Массив либо полностью состоит из нечетных целых чисел, либо полностью состоит из четных целых чисел,
+         за исключением одного целого числа N. Напишите метод, который принимает массив в качестве аргумента и возвращает этот «выброс» N.</div>
+      <div class="solution">
+         <pre>
+            <code>
+               let findOutlier = arr => {
+                  let newArr =arr.filter(el=>el%2==0);
+                  if (newArr.length ==1){
+                    return +newArr.join('')
+                  }
+                  else {
+                    let result = arr.concat(newArr).filter((element, index, arr) => {
+                      return arr.lastIndexOf(element) === arr.indexOf(element);
+                      }).join('')
+                      return +result
+                  }
+                }
+          <p class="comment"> 
+            //findOutlier([0, 1, 2]) => 1
+            //findOutlier([1, 2, 3]) => 2
+            //findOutlier([2,6,8,10,3]) => 3
+            //findOutlier([1,1,0,1,1]) => 0
+         </p></code></pre></div>
+   </div>
    <div class="task task8">
       <div class="condition">Task 8. Если мы перечислим все натуральные числа ниже 10, которые кратны 3 или 5, мы получим 3, 5, 6 и 9. Сумма этих кратных 23. Завершите решение так, чтобы оно возвращало сумму всех кратных 3 или 5 числам ниже переданного числа.</div>
       <div class="solution">
@@ -83,25 +149,26 @@
    <div class="task task9">
       <div class="condition">Task 9. Посчитать лайки на фейсбуке</div>
       <div class="solution">
-         <pre><code>
-            let likes = arr => {
+                   <pre><code>  
+               let likes = arr => {
                let arrLength = arr.length;
                let count = arrLength-2;
                if ((arrLength==0)){
                    return `no one likes this`
                }
                let result = arr.map((item,index,array)=>{
-                return (arrLength==1)?(`${item} likes this`):(arrLength==2)?(`${array[0]} and ${array[1]} like this`):(arrLength==3)?(`${array[0]}, ${array[1]} and ${array[2]} like this`):(`${array[0]} and ${arr[1]} and ${count} others like this`)
+                return (arrLength==1)?(`${item} likes this`):
+                (arrLength==2)?(`${array[0]} and ${array[1]} like this`):
+                (arrLength==3)?(`${array[0]}, ${array[1]} and ${array[2]} like this`):
+                (`${array[0]} and ${arr[1]} and ${count} others like this`)
                })
                return result.filter((item, pos) => result.indexOf(item) == pos).join('')
-             }
             <p class="comment">  
             // likes([]) => 'no one likes this'
             // likes(['Peter']) => 'Peter likes this'
             // likes(['Jacob', 'Alex']) => 'Jacob and Alex like this'
             // likes(['Max', 'John', 'Mark']) => 'Max, John and Mark like this')
-            // likes(['Alex', 'Jacob', 'Mark', 'Max']) => 'Alex, Jacob and 2 others like this'
-           </p></code></pre>
+            // likes(['Alex', 'Jacob', 'Mark', 'Max']) => 'Alex, Jacob and 2 others like this'</p></code></pre>
       </div>
 </div>
    <div class="task task10">
