@@ -32,7 +32,10 @@
       <div class="condition">Task 2. Реализуйте функцию unique_in_order, которая принимает в качестве аргумента последовательность и возвращает список элементов без каких-либо элементов с одинаковым значением рядом друг с другом и с сохранением исходного порядка элементов.</div>
       <div class="solution">
          <pre><code>
-            let uniqueInOrder = str => (typeof str == 'number')?(str.toString().replace(/(.)\1*/g, '$1').split('')).map(el=>+el):str.replace(/(.)\1*/g, '$1').split('')
+            let uniqueInOrder = str => (typeof str == 'number')?
+            (str.toString().replace(/(.)\1*/g, '$1')
+            .split('')).map(el=>+el):
+            str.replace(/(.)\1*/g, '$1').split('')
           <p class="comment">  
            // uniqueInOrder('AAAABBBCCDAABBB') => ['A', 'B', 'C', 'D', 'A', 'B']
            // uniqueInOrder('ABBCcAD')         => ['A', 'B', 'C', 'c', 'A', 'D']
