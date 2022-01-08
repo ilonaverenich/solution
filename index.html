@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <title>My result</title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  
+   
+
+</head>
+<body>
+   <h1 class="title">Решение 10 задач</h1>
+   <div class="container">
+    <hr>
+    <div class="task task1">
+      <div class="condition">Task 1. Для данного n возьмите сумму цифр n. Если это значение имеет более одной цифры, продолжайте уменьшать таким образом, пока
+         не будет получено однозначное число. Входными данными будет неотрицательное целое число.</div>
+      <div class="solution">
+         <pre><code>
+            let digital_root = num => 
+            num > 9 ?
+             digital_root([...num.toString()]
+            .reduce((prev, item) => +prev + +item)) : num;
+          <p class="comment">  
+            //digital_root(16)  =>   7
+            //digital_root(942)  =>   6
+            //digital_root(132189)  =>  6
+            //digital_root(493193)  =>   2</p></code></pre>
+      </div>
+   </div>
+   <div class="task task5">
+      <div class="condition">Task 5. Переместите первую букву каждого слова в его конец, затем добавьте «ау» в конец слова. Не трогайте знаки препинания.</div>
+      <div class="solution">
+         <pre><code>
+            let  validParentheses = str =>{
+               let array = str;
+               while (array.includes("()")){
+                 array = array.split("()").join("")
+                 }
+                 return array.length === 0 ? true : false
+               }
+          <p class="comment">  
+           // validParentheses(')(()))') => false
+           // validParentheses('()') => true
+           // validParentheses('()()') => true
+           // validParentheses('()((()') => false </p></code></pre>
+      </div>
+   </div>
+    <div class="task task6">
+      <div class="condition">Task 6. Переместите первую букву каждого слова в его конец, затем добавьте «ау» в конец слова. Не трогайте знаки препинания.</div>
+      <div class="solution">
+         <pre><code>
+            let pigIt = str => str.split(' ').map((item)=>{
+               let firstLetters = item.slice(1);
+               return firstLetters+item[0]+'ау'
+             })
+          <p class="comment">  
+           // pigIt('Pig latin is cool') =>'igPay atinlay siay oolcay'
+           // pigIt('This is my string') =>'hisTay siay ymay tringsay'</p></code></pre>
+      </div>
+   </div>
+   <div class="task task8">
+      <div class="condition">Task 8. Если мы перечислим все натуральные числа ниже 10, которые кратны 3 или 5, мы получим 3, 5, 6 и 9. Сумма этих кратных 23. Завершите решение так, чтобы оно возвращало сумму всех кратных 3 или 5 числам ниже переданного числа.</div>
+      <div class="solution">
+         <pre>
+            <code>
+               let result =[];
+               let solution = num =>{
+               for (let i=1; i&#60;num; i&#43;&#43;){
+                   if ((i%3==0)||(i%5==0)){
+                       result.push(i)
+                   }
+                 }
+                 return result.reduce((prev,item)=>prev+item,0)}
+          <p class="comment"> 
+            //solution(10) => 23
+            //solution(12) => 33
+            //solution(23) => 119
+         </p></code></pre></div>
+   </div>
+   <div class="task task10">
+         <div class="condition">Task 10. Нарциссическое число - это число длины n, в котором сумма цифр в степени n равна
+            исходному числу.</div>
+         <div class="solution">
+            <pre><code>
+               let isNarcissistic = num =>  num.toString()
+               .split('')
+               .reduce((prev,item,index,array)=>
+               prev+(+item)**array.length,0) == num
+               <p class="comment">  
+              // isNarcissistic(153) => true;
+              // isNarcissistic(435) => false;
+              // isNarcissistic(370) => true;
+              // isNarcissistic(1032) => false
+              </p></code></pre>
+         </div>
+   </div>
+   <hr>
+   </div>
+  
+  <p class="copyright">&copy;  Ilona Verenich, 2022</p>
+</body>
+</html>

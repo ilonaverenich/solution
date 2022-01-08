@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   font-family: 'Roboto', sans-serif;
+   background: black;
+   color: orange;
+}
+
+.container {
+   margin: 10px 10rem;
+}
+
+.title {
+   text-align: center;
+   margin-top: 30px;
+
+}
+
+.condition {
+   color: papayawhip;
+}
+
+.task {
+   margin-top: 30px;
+}
+
+.comment {
+   color: rgb(255, 255, 255);
+}
+
+.copyright {
+   margin: 10px 0px;
+   text-align: center;
+}
