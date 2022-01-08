@@ -80,6 +80,30 @@
             //solution(23) => 119
          </p></code></pre></div>
    </div>
+   <div class="task task9">
+      <div class="condition">Task 9. Посчитать лайки на фейсбуке</div>
+      <div class="solution">
+         <pre><code>
+            let likes = arr => {
+               let arrLength = arr.length;
+               let count = arrLength-2;
+               if ((arrLength==0)){
+                   return `no one likes this`
+               }
+               let result = arr.map((item,index,array)=>{
+                return (arrLength==1)?(`${item} likes this`):(arrLength==2)?(`${array[0]} and ${array[1]} like this`):(arrLength==3)?(`${array[0]}, ${array[1]} and ${array[2]} like this`):(`${array[0]} and ${arr[1]} and ${count} others like this`)
+               })
+               return result.filter((item, pos) => result.indexOf(item) == pos).join('')
+             }
+            <p class="comment">  
+            // likes([]) => 'no one likes this'
+            // likes(['Peter']) => 'Peter likes this'
+            // likes(['Jacob', 'Alex']) => 'Jacob and Alex like this'
+            // likes(['Max', 'John', 'Mark']) => 'Max, John and Mark like this')
+            // likes(['Alex', 'Jacob', 'Mark', 'Max']) => 'Alex, Jacob and 2 others like this'
+           </p></code></pre>
+      </div>
+</div>
    <div class="task task10">
          <div class="condition">Task 10. Нарциссическое число - это число длины n, в котором сумма цифр в степени n равна
             исходному числу.</div>
